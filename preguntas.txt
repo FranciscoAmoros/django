@@ -1,0 +1,129 @@
+Introducción a Django 
+Francisco Amorós
+
+1.   
+Django es un framework, que te permite crear páginas y aplicaciones 
+web usando python, se creó para poder hacer sitios funcionales en 
+mucho menos tiempo, ya que el framework se encarga de gran parte 
+del trabajo, y es de código abierto. 
+
+Rápido: fue pensado para ayudar a los desarrolladores a pasar de la 
+idea al proyecto terminado lo más rápido posible. 
+
+Completo: incluye docenas de funciones extra listas para usar, como 
+autenticación de usuarios, administración de contenido, mapas de 
+sitio y feeds RSS, sin que tengas que programarlas desde cero. 
+
+Seguro: ayuda a evitar errores comunes de seguridad como inyección 
+SQL, cross-site scripting, CSRF y clickjacking, y su sistema de 
+autenticación gestiona cuentas y contraseñas de forma segura. 
+
+Escalable: algunos de los sitios con más tráfico del mundo usan la 
+capacidad de Django para escalar rápida y flexiblemente. 
+
+Versátil: empresas, organizaciones y gobiernos lo han usado para 
+construir desde sistemas de gestión de contenido hasta redes sociales 
+y plataformas de computación científica. 
+
+2.
+El patrón MTV en Django 
+Django utiliza el patrón MTV (Model-Template-View), que es su propia 
+adaptación del clásico patrón MVC (Model-View-Controller). 
+
+Model: Es la capa encargada de los datos. Son clases de Python que 
+representan las tablas de la base de datos, definiendo qué 
+información se guarda y cómo se relaciona entre sí. 
+
+Template: es la capa de presentación. Contiene el HTML que 
+finalmente ve el usuario, con espacios reservados donde se insertan 
+los datos dinámicos. 
+
+View: contiene la lógica de la aplicación. Recibe la solicitud del usuario, 
+obtiene los datos necesarios a través del Model, procesa esa 
+información y decide qué Template usar para mostrar el resultado. 
+Comparación con MVC
+
+La diferencia principal entre MTV y MVC es más terminológica que 
+estructural, ya que ambos patrones cumplen el mismo objetivo: 
+separar datos, lógica y presentación. 
+En Django, lo que en MVC se conoce como View (la interfaz que ve el 
+usuario) se llama Template. Y lo que en MVC se conoce como 
+Controller (la lógica que decide qué mostrar) se llama View. El rol del 
+Controller tradicional queda repartido entre el propio framework 
+—que mediante el sistema de URLs decide qué View ejecutar— y la 
+View de Django, que asume esa responsabilidad de lógica y 
+coordinación.  
+
+3.  
+Qué es una "app" en Django: 
+En Django, una app es un módulo de Python que cumple una función 
+específica dentro de un proyecto más grande. Por ejemplo, en un sitio 
+de e-commerce podrías tener una app para "usuarios", otra para 
+"productos", otra para "pagos" y otra para "reseñas". 
+Cuando creas una app con el comando: python manage.py startapp 
+nombre_app, Django te genera varios archivos como models.py, 
+views.py , etc.
+
+4.  
+El flujo Request-Response en Django 
+Es el recorrido completo que sigue una petición desde que el usuario 
+la hace (por ejemplo, entra a una URL) hasta que recibe una respuesta. 
+En Django este flujo sigue varios pasos bien definidos: 
+
+a. El usuario hace una petición (Request) 
+Un usuario escribe una URL en el navegador, hace clic en un link, o 
+envía un formulario. Eso genera un objeto HttpRequest que viaja hacia 
+el servidor. 
+
+b. Django revisa el archivo de URLs 
+El servidor recibe la petición y Django consulta el archivo urls.py, que 
+funciona como un mapa: compara la URL solicitada con una lista de 
+patrones definidos, para saber qué View debe encargarse de esa 
+petición. 
+
+c. Se ejecuta la View correspondiente 
+Una vez que Django encuentra la coincidencia, ejecuta la función (o 
+clase) de esa View. Ahí es donde ocurre la lógica: se procesan datos, se 
+validan formularios, se aplican reglas de negocio, etc. 
+
+d. La View consulta el Model (si es necesario) 
+Si la vista necesita datos (por ejemplo, mostrar una lista de 
+productos), le pide esa información al Model, que a su vez consulta la 
+base de datos. 
+
+e. La View elige un Template 
+Con los datos ya obtenidos, la vista selecciona una plantilla HTML y le 
+pasa esos datos (esto se llama "renderizar" el template). 
+
+f. Se genera la respuesta (Response) 
+Django construye un objeto HttpResponse con el HTML final (u otro 
+formato, como JSON en el caso de una API) y se lo devuelve al 
+navegador del usuario. 
+
+g. El navegador muestra el resultado 
+El usuario ve la página cargada, con los datos correspondientes.
+
+5.  
+ORM 
+El ORM es una técnica que permite trabajar con una base de datos 
+usando el lenguaje de programación (en este caso, Python) en lugar de 
+escribir consultas SQL directamente. Es decir, "traduce" el mundo de 
+los objetos de Python al mundo de las tablas relacionales, y viceversa. 
+Funciona porque cada Model que definis en Django, es una clase de 
+Python, que representa una tabla SQL. 
+
+6.  
+Templates en Django 
+Los templates son archivos HTML que definen cómo se ve una página, 
+combinando texto estático con datos dinámicos que vienen desde la 
+View. 
+En vez de escribir HTML puro con datos fijos, un template usa una 
+sintaxis especial que permite insertar variables, repetir bloques de 
+contenido, aplicar condiciones, etc. Django procesa ese template, 
+reemplaza esas partes dinámicas con datos reales, y genera el HTML 
+final que ve el usuario. 
+
+7.
+Para instalarlo, primero hay que instalar Python. ya que es un 
+framework de Python, después vas a la página oficial de Django y lo 
+descargas. Después los importas en tu archivo de Python y listo. 
