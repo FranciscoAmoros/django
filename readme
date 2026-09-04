@@ -1,0 +1,41 @@
+# Tutorial de Django
+
+Fui siguiendo el tutorial oficial de Django (el de la app de encuestas) y en este repo dejo todo
+lo que fui armando, hasta la parte 8.
+
+## Cómo lo fui haciendo
+
+Arranqué instalando Django y creando el proyecto base, después le agregué la app de las encuestas
+("polls"). De ahí en más fui avanzando parte por parte tal cual lo indica la guía:
+
+Primero armé una vista simple solo para probar que todo funcionara. Después definí los models
+(questions y choices) y conecté todo con la base de datos, probando también el panel de
+administración para cargar datos a mano.
+
+Luego seguí con las páginas que se ven en el navegador: el listado de preguntas, el detalle de
+cada una, y la parte de votar. Ahí también hice las plantillas HTML para que se vea más prolijo.
+
+Más adelante agregué el formulario para poder votar de verdad y guardar los votos, y fui
+simplificando código usando algunas herramientas que trae Django para no repetir tanto.
+
+Después escribí algunos tests para chequear que las cosas funcionen como esperaba, y le di un poco
+de estilo a la página agregando CSS y una imagen.
+
+También modifiqué un poco cómo se ve el panel de administración para que sea más cómodo de usar
+por último vi cómo se podría empaquetar esta app para reutilizarla en otro proyecto.
+
+## Qué hay en este repo
+
+- El proyecto de Django con todo lo que fui haciendo
+- Las respuestas al cuestionario en un .txt
+- Este README
+
+## Para correrlo
+
+```bash
+pip install django
+python manage.py migrate
+python manage.py runserver
+```
+
+Y después abrir `http://127.0.0.1:8000/` en el navegador.
